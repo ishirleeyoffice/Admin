@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from "motion/react";
 import {
   ChevronDown,
@@ -445,6 +446,7 @@ export function WeddingBuilder() {
 
   const formattedDate = formatDate(registrationData.weddingDate);
   const formattedTime = formatTime(registrationData.weddingTime);
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col h-screen overflow-hidden bg-white font-['Gowun_Dodum'] text-gray-800">
@@ -453,7 +455,7 @@ export function WeddingBuilder() {
       <header className="flex items-center justify-between px-6 py-3 border-b border-gray-200 bg-white z-20 flex-shrink-0">
         <div className="flex items-center gap-3">
           <Heart className="w-4 h-4 text-rose-400 fill-rose-400" />
-          <span className="font-bold text-gray-800 text-sm">청첩장 빌더</span>
+          <span className="font-bold text-gray-800 text-sm cursor-pointer hover:opacity-80 transition-opacity" onClick={() => navigate('/')}>청첩장 빌더</span>
           <span className="text-gray-300 mx-1 text-xs">|</span>
           <span className="text-xs text-gray-400">실시간 미리보기</span>
         </div>
